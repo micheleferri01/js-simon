@@ -15,7 +15,7 @@ console.log(inputGroup);
 // todo:
 //* visualizzare timer nel DOM
 // contatore per countdown
-let countdownCounter = 3;
+let countdownCounter = 30;
 
 countdown.innerText = countdownCounter;
 
