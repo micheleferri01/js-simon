@@ -4,6 +4,7 @@ const instructions = document.getElementById("instructions");
 const numberslist = document.getElementById("numbers-list");
 const answersForm = document.getElementById("answers-form");
 const inputGroup = document.getElementById("input-group");
+const message = document.getElementById("message");
 
 console.log(countdown);
 console.log(instructions);
@@ -45,10 +46,23 @@ function timer(){
     if (countdownCounter <= 0){
         countdown.innerText = "";
         numberslist.classList.add("d-none");
+        instructions.innerText = "Inserisci i numeri"
+        answers();
         clearInterval(intervalId);
     }
 }
 //* visualizzare il form da compilare per l'utente
-//* leggere il form al submit
+
+// array per salvare le risposte dell'utente
+
+function answers(){
+    //* leggere il form al submit
+    answersForm.addEventListener("submit", (e) =>{
+        e.preventDefault();
+    })
+    answersForm.classList.remove("d-none");
+    
+}
+
 //* controllare i valori inseriti dall'utente
 //* visualizzare un messaggio con quanti numeri ha indovinato l'utente
