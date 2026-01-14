@@ -14,7 +14,7 @@ console.log(inputGroup);
 // todo:
 //* visualizzare timer nel DOM
 // contatore per countdown
-let countdownCounter = 30;
+let countdownCounter = 3;
 
 countdown.innerText = countdownCounter;
 
@@ -22,18 +22,32 @@ countdown.innerText = countdownCounter;
 const randomNumbers = [];
 
 for(let i = 0; i < 5; i++){
-    const randomNum = Math.floor(Math.random() * (50 - 1 + 1) - 1);
+    const randomNum = Math.floor(Math.random() * (50 - 1 + 1) + 1);
     randomNumbers.push(`${randomNum}`);
 }
 console.log(randomNumbers);
 
 //* aggiugere i numeri generati al DOM
 for(let i = 0; i < randomNumbers.length; i++){
+    numberslist.classList.remove("d-none");
     numberslist.innerHTML += `<li>${randomNumbers[i]}</li>`;
 }
 
 //* avviare timer ed impostare condizioni di fine countdown
-//* nascondere i numeri generati in modo che l'utente non possa più vederli
+const intervalId = setInterval(function () {
+  timer();  
+},1000);
+
+function timer(){
+    countdownCounter--;
+    countdown.innerText = countdownCounter;
+    //* nascondere i numeri generati in modo che l'utente non possa più vederli
+    if (countdownCounter <= 0){
+        countdown.innerText = "";
+        numberslist.classList.add("d-none");
+        clearInterval(intervalId);
+    }
+}
 //* visualizzare il form da compilare per l'utente
 //* leggere il form al submit
 //* controllare i valori inseriti dall'utente
