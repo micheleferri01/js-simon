@@ -20,12 +20,18 @@ countdown.innerText = countdownCounter;
 
 //* generare 5 numeri random
 const randomNumbers = [];
+
 for(let i = 0; i < 5; i++){
     const randomNum = Math.floor(Math.random() * (50 - 1 + 1) - 1);
     randomNumbers.push(`${randomNum}`);
 }
 console.log(randomNumbers);
+
 //* aggiugere i numeri generati al DOM
+for(let i = 0; i < randomNumbers.length; i++){
+    numberslist.innerHTML += `<li>${randomNumbers[i]}</li>`;
+}
+
 //* avviare timer ed impostare condizioni di fine countdown
 //* nascondere i numeri generati in modo che l'utente non possa più vederli
 //* visualizzare il form da compilare per l'utente
