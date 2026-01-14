@@ -90,14 +90,20 @@ function answersHandler(){
         // controllo valore valido
         if (isNaN(currentInput)) {
             message.innerText = "Inserisci solo numeri validi!";
+            inputGroup.children[i].classList.add("error");
             return;
+        }else{
+            inputGroup.children[i].classList.remove("error")
         }
 
         // controllo duplicati
         for (let j = 0; j < inputs.length; j++) {
             if (inputs[j] === currentInput) {
                 message.innerText = "Non puoi inserire lo stesso numero due volte!";
-                return;
+                inputGroup.children[i].classList.add("error");
+                return
+            }else{
+                inputGroup.children[i].classList.remove("error");
             }
         }
 
